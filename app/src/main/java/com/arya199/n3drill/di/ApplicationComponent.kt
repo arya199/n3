@@ -9,7 +9,9 @@ import dagger.android.AndroidInjector
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [AndroidInjectionModule::class])
+@Component(modules = [
+    DrillModule::class,
+    AndroidInjectionModule::class])
 interface ApplicationComponent: AndroidInjector<N3DrillApplication> {
     @Component.Factory
     interface Factory {
