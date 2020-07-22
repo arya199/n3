@@ -33,6 +33,25 @@ android {
             includeAndroidResources = true
         }
     }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),'proguard-rules.pro'
+        }
+    }
+
+    android {
+        sourceSets {
+            String sharedTestDir = 'src/sharedTest/java'
+            test {
+                java.srcDirs += sharedTestDir
+            }
+            androidTest {
+                java.srcDirs += sharedTestDir
+            }
+        }
+    }
 }
 
 dependencies {

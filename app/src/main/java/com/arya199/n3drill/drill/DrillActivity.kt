@@ -1,12 +1,19 @@
 package com.arya199.n3drill.drill
 
 import android.os.Bundle
-import android.os.PersistableBundle
+import android.util.Log
 import dagger.android.support.DaggerAppCompatActivity
+import retrofit2.Retrofit
+import javax.inject.Inject
 
 class DrillActivity: DaggerAppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    @Inject
+    lateinit var retrofit: Retrofit
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.i("DEBUG", "START")
+        Log.i("DEBUG", retrofit.toString())
     }
 }
