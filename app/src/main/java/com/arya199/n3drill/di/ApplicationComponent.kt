@@ -11,6 +11,7 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [
     DrillModule::class,
+    ApplicationModule::class,
     AndroidInjectionModule::class])
 interface ApplicationComponent: AndroidInjector<N3DrillApplication> {
     @Component.Factory

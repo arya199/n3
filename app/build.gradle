@@ -6,6 +6,11 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 28
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     defaultConfig {
         applicationId "com.arya199.n3drill"
         minSdkVersion 21
@@ -52,4 +57,9 @@ dependencies {
     kapt 'com.google.dagger:dagger-android-processor:2.28'
     kaptAndroidTest "com.google.dagger:dagger-compiler:2.28"
     kaptTest "com.google.dagger:dagger-compiler:2.28"
+
+    // Retrofit & Friends
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.7.2'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 }
