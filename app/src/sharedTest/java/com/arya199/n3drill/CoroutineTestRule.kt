@@ -15,13 +15,11 @@ class CoroutineTestRule: TestWatcher(), TestCoroutineScope by TestCoroutineScope
 
     override fun starting(description: Description?) {
         super.starting(description)
-        //Dispatchers.setMain(testDispatcher)
         Dispatchers.setMain(this.coroutineContext[ContinuationInterceptor] as CoroutineDispatcher)
     }
 
     override fun finished(description: Description?) {
         super.finished(description)
         Dispatchers.resetMain()
-        //testDispatcher.cleanupTestCoroutines()
     }
 }
