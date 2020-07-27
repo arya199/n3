@@ -19,5 +19,7 @@ interface TestApplicationComponent: AndroidInjector<TestN3DrillApplication> {
         fun create(@BindsInstance applicationContext: Context): TestApplicationComponent
     }
 
-    val retrofit: Retrofit
+    var retrofit: Retrofit
+
+    var mockyService: MockyService
 }
