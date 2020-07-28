@@ -2,6 +2,8 @@ package com.arya199.n3drill
 
 import android.content.Context
 import androidx.test.core.app.ApplicationProvider
+import junit.framework.Assert.assertEquals
+import junit.framework.Assert.assertTrue
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
@@ -36,6 +38,15 @@ class ExampleTest {
     fun testMockyService() {
         runBlocking {
             print(component.mockyService.okMessage())
+        }
+    }
+
+    @ExperimentalCoroutinesApi
+    @Test
+    fun testQuestionService() {
+        runBlocking {
+            val questions = component.questionService.getQuestionsByLevel("a6696c392350")
+            assertEquals(37, questions.size)
         }
     }
 }

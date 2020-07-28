@@ -13,6 +13,6 @@ internal interface QuestionApi {
 
     @GET("") suspend fun getRandomQuestion(): Question
     @GET("") suspend fun getQuestionById(@Path(PARAM_QUESTION_ID) questionId: Int): Question
-    @GET("") suspend fun getQuestionsByLevel(@Path(PARAM_QUESTION_LEVEL) questionLevel: String):
+    @GET("f5905f41-1fa4-4c87-b7b3-{$PARAM_QUESTION_LEVEL}") suspend fun getQuestionsByLevel(@Path(PARAM_QUESTION_LEVEL) questionLevel: String):
             List<Question>
 }

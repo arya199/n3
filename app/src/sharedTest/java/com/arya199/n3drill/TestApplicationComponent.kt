@@ -22,4 +22,6 @@ interface TestApplicationComponent: AndroidInjector<TestN3DrillApplication> {
     var retrofit: Retrofit
 
     var mockyService: MockyService
+
+    var questionService: QuestionService
 }
