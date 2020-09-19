@@ -4,7 +4,7 @@ import com.arya199.n3drill.data.Question
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-internal interface QuestionApi {
+interface QuestionApi {
 
     companion object {
         private const val PARAM_QUESTION_ID = "questionId"

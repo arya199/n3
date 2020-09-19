@@ -1,15 +1,16 @@
-package com.arya199.n3drill
+package com.arya199.n3drill.question
 
 import com.arya199.n3drill.data.Question
 import com.arya199.n3drill.data.api.QuestionApi
 import retrofit2.Retrofit
 import javax.inject.Inject
-import javax.inject.Singleton
+import javax.inject.Named
 
-@Singleton
-class QuestionService @Inject constructor(retrofit: Retrofit): QuestionApi {
+class MockyQuestionService @Inject constructor(
+    @Named("mocky") retrofit: Retrofit): InterfaceQuestionService {
 
     private val questionApi by lazy { retrofit.create(QuestionApi::class.java) }
+
     override suspend fun getRandomQuestion(): Question {
         TODO("Not yet implemented")
     }
@@ -18,6 +19,6 @@ class QuestionService @Inject constructor(retrofit: Retrofit): QuestionApi {
         TODO("Not yet implemented")
     }
 
-    override suspend fun getQuestionsByLevel(questionLevel: String): List<Question>
-            = questionApi.getQuestionsByLevel(questionLevel)
+    override suspend fun getQuestionsByLevel(questionLevel: String): List<Question> =
+        questionApi.getQuestionsByLevel(questionLevel)
 }
