@@ -4,8 +4,9 @@
     <data>
         <import type="android.view.View"/>
         <import type="androidx.core.content.ContextCompat" />
-
-        <variable name="question" type="com.arya199.n3drill.data.Question"/>
+        <variable
+            name="questionViewModel"
+            type="com.arya199.n3drill.question.QuestionViewModel" />
     </data>
 
     <LinearLayout

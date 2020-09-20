@@ -19,10 +19,6 @@ class QuestionFragment: DaggerFragment() {
 
     private lateinit var viewDataBinding: QuestionFragBinding
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -30,8 +26,17 @@ class QuestionFragment: DaggerFragment() {
     ): View? {
         viewDataBinding = QuestionFragBinding.inflate(inflater, container, false)
             .apply {
+                questionViewModel = viewModel
             }
 
         return viewDataBinding.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        viewDataBinding.lifecycleOwner = this.viewLifecycleOwner
+
+        viewModel.loadQuestions()
     }
 }

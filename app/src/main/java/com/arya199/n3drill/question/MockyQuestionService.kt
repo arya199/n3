@@ -20,5 +20,5 @@ class MockyQuestionService @Inject constructor(
     }
 
     override suspend fun getQuestionsByLevel(questionLevel: String): List<Question> =
-        questionApi.getQuestionsByLevel(questionLevel)
+        questionApi.getQuestionsByLevel("f5905f41-1fa4-4c87-b7b3-a6696c392350")
 }
