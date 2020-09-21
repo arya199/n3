@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.arya199.n3drill">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:name=".N3DrillApplication"
         android:allowBackup="true"
