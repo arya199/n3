@@ -1,6 +1,8 @@
 package com.arya199.n3drill
 
 import android.content.Context
+import com.arya199.n3drill.di.ApplicationModule
+import com.arya199.n3drill.di.DrillModule
 import com.arya199.n3drill.question.InterfaceQuestionService
 import dagger.BindsInstance
 import dagger.Component
@@ -12,8 +14,8 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [
-    TestApplicationModule::class, // The definition for Retrofit objects are here
-    TestDrillModule::class, // Service binder
+    ApplicationModule::class, // The definition for Retrofit objects are here
+    DrillModule::class, // Service, Activity, Fragment binder
     AndroidInjectionModule::class
 ])
 interface TestApplicationComponent: AndroidInjector<TestN3DrillApplication> {

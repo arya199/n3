@@ -6,7 +6,7 @@ import com.arya199.n3drill.data.Question
 
 @BindingAdapter("app:questions")
 fun setItems(listView: RecyclerView, items: List<Question>) {
-    items?.let {
+    items.let {
         (listView.adapter as QuestionListAdapter).submitList(items)
     }
 }

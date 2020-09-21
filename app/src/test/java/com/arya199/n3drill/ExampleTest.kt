@@ -50,7 +50,7 @@ class ExampleTest {
     fun testQuestionService() {
         runBlocking {
             val questions = component.questionService.getQuestionsByLevel("IRRELEVANT")
-            assertEquals(37, questions.size)
+            assertEquals(36, questions.size)
         }
     }
 }
