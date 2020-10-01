@@ -14,6 +14,7 @@ class QuestionViewModel @Inject constructor(private val questionService: Interfa
 
     private val _questions = MutableLiveData<List<Question>>().apply { value = emptyList() }
     val questions: LiveData<List<Question>> = _questions
+    val selectedQuestion = MutableLiveData<Question>()
 
     fun loadQuestions() {
         wrapEspressoIdlingResource {
@@ -22,5 +23,9 @@ class QuestionViewModel @Inject constructor(private val questionService: Interfa
                 _questions.value = questionResult
             }
         }
+    }
+
+    fun select(item: Question) {
+        selectedQuestion.value = item
     }
 }

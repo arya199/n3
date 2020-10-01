@@ -9,6 +9,15 @@
         android:name="com.arya199.n3drill.question.QuestionFragment"
         android:id="@+id/question_fragment"
         android:label="QuestionFragment"
-        tools:layout="@layout/question_frag"/>
+        tools:layout="@layout/question_frag">
+        <action
+            android:id="@+id/action_question_fragment_to_questionItemFragment"
+            app:destination="@id/questionItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionItemFragment"
+        android:name="com.arya199.n3drill.question.QuestionItemFragment"
+        android:label="QuestionItemFragment"
+        tools:layout="@layout/question_item_frag"/>
 
 </navigation>

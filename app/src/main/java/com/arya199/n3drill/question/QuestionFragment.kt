@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.arya199.n3drill.R
 import com.arya199.n3drill.data.Question
 import com.arya199.n3drill.databinding.QuestionFragBinding
 import dagger.android.support.DaggerFragment
@@ -17,7 +19,7 @@ class QuestionFragment: DaggerFragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    private val viewModel by viewModels<QuestionViewModel> { viewModelFactory }
+    private val sharedViewModel by activityViewModels<QuestionViewModel> { viewModelFactory }
 
     private lateinit var viewDataBinding: QuestionFragBinding
 
@@ -30,7 +32,7 @@ class QuestionFragment: DaggerFragment() {
     ): View? {
         viewDataBinding = QuestionFragBinding.inflate(inflater, container, false)
             .apply {
-                questionViewModel = viewModel
+                questionViewModel = sharedViewModel
             }
 
         return viewDataBinding.root
@@ -43,7 +45,7 @@ class QuestionFragment: DaggerFragment() {
 
         setupListAdapter()
 
-        viewModel.loadQuestions()
+        sharedViewModel.loadQuestions()
     }
 
     private fun setupListAdapter() {
@@ -54,6 +56,8 @@ class QuestionFragment: DaggerFragment() {
             listAdapter.setOnItemClickListener(object: QuestionListAdapter.OnItemClickListener {
                 override fun onClick(data: Question) {
                     Toast.makeText(context, data.Bogus_1, Toast.LENGTH_LONG).show()
+                    viewModel.select(data)
+                    findNavController().navigate(R.id.questionItemFragment)
                 }
             })
         }

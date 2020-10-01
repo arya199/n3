@@ -9,4 +9,5 @@ fun setItems(listView: RecyclerView, items: List<Question>) {
     items.let {
         (listView.adapter as QuestionListAdapter).submitList(items)
     }
+
 }

@@ -2,10 +2,7 @@ package com.arya199.n3drill.di
 
 import androidx.lifecycle.ViewModel
 import com.arya199.n3drill.drill.DrillActivity
-import com.arya199.n3drill.question.DefaultQuestionService
-import com.arya199.n3drill.question.InterfaceQuestionService
-import com.arya199.n3drill.question.QuestionFragment
-import com.arya199.n3drill.question.QuestionViewModel
+import com.arya199.n3drill.question.*
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -21,6 +18,9 @@ abstract class DrillModule {
 
     @ContributesAndroidInjector(modules = [ViewModelBuilder::class])
     internal abstract fun questionFragment(): QuestionFragment
+
+    @ContributesAndroidInjector(modules = [ViewModelBuilder::class])
+    internal abstract fun questionItemFragment(): QuestionItemFragment
 
     @Binds
     @IntoMap
